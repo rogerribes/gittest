@@ -37,8 +37,7 @@ angular
         controller: 'toDoListController',
         controllerAs: 'tdListCtrl',
         resolve:{
-          tdlist:['toDoService','toDoResource', function(toDoService, toDoResource){
-           console.log("apps resolve query: ",toDoResource.get().$promise);
+          tdlist:['toDoResource', function(toDoResource){
            return toDoResource.get();
             //return toDoService.list;
           }]
