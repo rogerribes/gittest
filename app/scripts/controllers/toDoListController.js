@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('toDoModule');
-app.controller('toDoListController', ['toDoService', '$location', 'tdlist',
-    function(toDoService, $location, tdlist) {
+app.controller('toDoListController', ['$location', 'tdlist',
+    function($location, tdlist) {
 
         // Fetching All elements from API Rest
         console.log("HI");
@@ -17,10 +17,7 @@ app.controller('toDoListController', ['toDoService', '$location', 'tdlist',
 
 
 
-        vm.selectToDo = function(todo) {
-            toDoService.todo = todo;
-            $location.path('/toDoDetail');
-        }
+       
 
 
         console.log("Controller with value: ", vm.list);

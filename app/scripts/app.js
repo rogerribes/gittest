@@ -59,6 +59,15 @@ angular
         redirectTo: '/'
       });
   })
+  .run(function($window){
+    var windowElement = angular.element($window);
+windowElement.on('beforeunload', function (event) {
+    // do whatever you want in here before the page unloads.        
+
+    // the following line of code will prevent reload or navigating away.
+    event.preventDefault();
+});
+});
   //BACKEND CONFIGURATION. API REST BACKAND. FREE SERVICE
   /*.config(function (BackandProvider) {
       BackandProvider.setAppName('aedesigndashboard');
