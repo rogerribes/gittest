@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('toDoModule');
-app.controller('elementController', ['toDoService','$routeParams',function(toDoService, $routeParams){
+app.controller('elementController', ['toDoResource','$routeParams',function(toDoResource, $routeParams){
     
     var vm = this;
     
@@ -36,7 +36,7 @@ app.controller('elementController', ['toDoService','$routeParams',function(toDoS
         vm.btnEdit = "Save";
             vm.btnCancel = "Cancel";
     }else{
-        vm.todo = toDoService.todo;
+        vm.todo = toDoResource.get({id:$routeParams.id});
     }
     
 }]);

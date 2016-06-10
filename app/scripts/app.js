@@ -50,7 +50,7 @@ angular
         controllerAs: 'detailCtrl'
       })
       // Shows detail from one ToDo Element.
-      .when('/toDoDetail', {
+      .when('/toDoDetail/:id', {
         templateUrl: 'views/toDoDetail.html',
         controller: 'elementController',
         controllerAs: 'detailCtrl'
