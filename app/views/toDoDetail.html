@@ -1,0 +1,40 @@
+<div class="container todoDetail">
+    <div class="row">
+        <h3 class="header text-center text-muted">{{detailCtrl.todo.title}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group form-inline">
+                <label class="form-control-label" for="todoCategory">Category: </label>
+                <input ng-disabled="detailCtrl.disabled" type="email" class="form-control" id="todoCategory" placeholder="Category">
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-group form-inline">
+                <label class="form-control-label" for="todoUrgency">Urgency: </label>
+                <input ng-disabled="detailCtrl.disabled" type="email" class="form-control" id="todoUrgency" placeholder="Urgency">
+            </div>
+        </div>
+        <div class="col-xs-4 ">
+            <div class="form-group form-inline">
+                <label class="form-control-label" for="todoDueDate">Due Date: </label>
+                <input ng-disabled="detailCtrl.disabled" type="date" class="form-control" id="todoDueDate" placeholder="DueDate">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
+                <textarea rows="5"  ng-disabled="detailCtrl.disabled" type="text" class="form-control" id="exampleInputEmail1" placeholder="Description">{{detailCtrl.todo.description}}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12">
+        <button ng-click="detailCtrl.isEditable()" class="btn btn-lg btn-warning"><i class="glyphicon glyphicon-pencil"></i>  {{detailCtrl.btnEdit}}</button>
+        <a ng-href="#/toDoList" class="btn btn-info btn-lg"><i class="glyphicon glyphicon-remove"></i>  {{detailCtrl.btnCancel}}</a>
+        </div>
+    </div>
+  
+</div>
