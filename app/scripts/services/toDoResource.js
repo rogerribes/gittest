@@ -11,3 +11,22 @@ app.factory('toDoResource',['$resource','Backand', function($resource, Backand){
         }
     });
 }]);
+
+/*
+* MODEL FOR ToDo Resource.
+*
+*Object Definition:
+*API REST: http://backand.com ; App DashBoard.
+*
+*Collection: toDoList
+*Parameters: JSON Object
+*
+*title: String,
+*description: text,
+*category: String,
+*urgency: String,
+*dueDate: Date,
+*addedOn: Date,
+*
+*
+*/
