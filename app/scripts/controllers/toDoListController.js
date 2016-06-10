@@ -24,6 +24,10 @@ app.controller('toDoListController', ['toDoService', '$location', 'tdlist',
 
 
 
+
+
+
+
         console.log("Controller with value: ", vm.list);
 
     }
