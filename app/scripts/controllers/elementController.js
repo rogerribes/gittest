@@ -1,6 +1,7 @@
 'use strict';
 var app = angular.module('toDoModule');
-app.controller('elementController', ['toDoResource', '$routeParams', function(toDoResource, $routeParams) {
+app.controller('elementController', ['toDoResource', '$routeParams', 
+    function(toDoResource, $routeParams) {
 
     var vm = this;
 
@@ -10,15 +11,18 @@ app.controller('elementController', ['toDoResource', '$routeParams', function(to
     vm.disabled = true;
     vm.btnEdit = "Edit";
     vm.btnCancel = "Back";
+   
 
     
 
     // SAVE New ToDo Element
     vm.saveNew = function() {
         // Create Date Elements Correctly
+        
+        vm.todo.addedOn = new Date();
+        vm.todo.completed = false;
+        vm.todo.dueDate = new Date(vm.todo.dueDate);
         vm.newTodo = new toDoResource(vm.todo);
-        vm.newTodo.addedOn = new Date();
-        //vm.newTodo.dueDate = new Date(vm.newTodo.dueDate);
         vm.newTodo.$save();
     };
 
@@ -66,8 +70,7 @@ app.controller('elementController', ['toDoResource', '$routeParams', function(to
         vm.todo = toDoResource.get({
             id: $routeParams.id
         });
-        vm.todo.dueDate = new Date(vm.todo.dueDate);
-        vm.todo.addedOn = new Date(vm.todo.addedOn);
+        
     }
 
 }]);
