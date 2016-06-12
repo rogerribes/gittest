@@ -2,25 +2,27 @@
     <div class=" row well">
         <div class="col-md-4 form-group form-inline  ">
             <label class="form-control-label" for="sel1">Order By:</label>
-            <select class="form-control" id="sel1">
-                <option selected>Urgency</option>
-                <option>AddedOn</option>
-                <option>DueDate</option>
+            <select class="form-control" id="sel1" ng-model="tdListCtrl.orderBy">
+                <option>urgency</option>
+                <option>addedOn</option>
+                <option>dueDate</option>
             </select>
-            <i class="glyphicon glyphicon-circle-arrow-down"></i>
         </div>
         <div class="col-md-4 form-group form-inline">
             <label class="form-control-label" for="">Category:</label>
-            <input class="form-control" type="" name="" value="">
+            <input class="form-control" type="" name="" ng-model="tdListCtrl.filterBy.category">
             <i class="glyphicon glyphicon-search"></i>
         </div>
         <div class="col-md-4 form-group form-inline">
-            <input type="checkbox" /> Show Completed
+            <input ng-model="tdListCtrl.showCompleted" type="checkbox" /> Show Completed
             <a ng-href="#/toDoDetail/new" class="btn btn-success" type="button"> New</a>
             <button class="btn btn-danger" type=""> Remove Completed</button>
         </div>
     </div>
-    <div class="col-md-4" ng-repeat="todo in tdListCtrl.list">
+    <div class="col-md-4" ng-repeat="todo in tdListCtrl.list
+                             |tdLCompletedFilter: tdListCtrl.showCompleted
+                             |filter: tdListCtrl.filterBy:strict
+                             |orderBy: tdListCtrl.orderBy">
         <td-element-preview></td-element-preview>
     </div>
 </div>

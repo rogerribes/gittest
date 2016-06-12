@@ -1,11 +1,16 @@
-<div class=" todoelement">
+<div class=" todoelement" ng-class="{blockUrgencyHigh: todo.urgency === 'High',
+                                    blockUrgencyMedium: todo.urgency === 'Medium',
+                                    blockUrgencyLow: todo.urgency === 'Low',
+                                    blockCompleted: todo.completed}">
 
-            <h3 class="header">{{todo.title}}</h3>
-            <label>categoria: </label> {{todo.category}} <br>
+            <h3 class="header text-center" ng-class="{strike: todo.completed}">{{todo.title}}</h3>
+            <label>Categoria: </label> {{todo.category}} <br>
+            <label>Urgencia: </label> {{todo.urgency}} 
+           <span class="pull-right"  ng-class="{strike: todo.completed}"> <label ng-class="{strike: todo.completed}">DueDate: </label> {{todo.dueDate | date: mediumDate}}</span> <br>
             <a type="button" class="btn btn-primary" ng-href="#/toDoDetail/{{todo.id}}">
                 <i class="glyphicon glyphicon-search"></i> Ver</a>
-            <a type="button" class="btn btn-success pull-right" ng-click="">
-                <i class="glyphicon glyphicon-ok"></i> Completed!</a>
+            <a type="button" class="btn btn-success pull-right" ng-click="tdListCtrl.setCompleted(todo)">
+                <i  class="glyphicon glyphicon-ok"></i> Completed!</a>
         </div>
         
    

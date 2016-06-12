@@ -85,7 +85,7 @@ body {
     border: 1px solid #ccc;
     padding: 0px 20px;
     margin: 5px;
-    height: 150px;
+    height: 180px;
     -webkit-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
   
@@ -112,6 +112,31 @@ body {
 .header{
   margin-bottom: 10px;
 }
+.strike{
+  text-decoration: line-through;
+
+}
+/* STYLES FOR LIST VISUAL ESTATES */
+
+.blockUrgencyHigh{
+  background-color: rgba(228, 38, 0, 0.2)
+}
+.blockUrgencyMedium{
+  background-color: rgba(228, 145, 0, 0.2)
+}
+.blockUrgencyLow{
+  background-color: rgba(0, 53, 218, 0.2);
+}
+.blockCompleted{
+  background-color: rgba(0, 235, 49, 0.2);
+}
+
+
+
+
+
+
+
 
 /* CHECKBOX ESTILING FROM*/
 .checkbox {

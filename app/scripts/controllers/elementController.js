@@ -18,14 +18,10 @@ app.controller('elementController', ['toDoResource', '$routeParams', function(to
         // Create Date Elements Correctly
         vm.newTodo = new toDoResource(vm.todo);
         vm.newTodo.addedOn = new Date();
-        vm.newTodo.dueDate = new Date(vm.newTodo.dueDate);
+        //vm.newTodo.dueDate = new Date(vm.newTodo.dueDate);
         vm.newTodo.$save();
     };
 
-    // //DELETE ToDo Element
-    // vm.deleteToDo = function(){
-    //     vm.newTodo.$delete({id:$});
-    // };
 
     //UPDATE ToDo Element
     vm.updateToDo = function(todo) {
@@ -70,8 +66,8 @@ app.controller('elementController', ['toDoResource', '$routeParams', function(to
         vm.todo = toDoResource.get({
             id: $routeParams.id
         });
-       // vm.todo.dueDate = new Date(vm.todo.dueDate);
-       // vm.todo.addedOn = new Date(vm.todo.addedOn);
+        vm.todo.dueDate = new Date(vm.todo.dueDate);
+        vm.todo.addedOn = new Date(vm.todo.addedOn);
     }
 
 }]);
