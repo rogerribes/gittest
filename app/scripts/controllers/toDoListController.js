@@ -24,7 +24,13 @@ app.controller('toDoListController', ['$location', 'tdlist','toDoResource',
 
 
         // Delete Completeds
-
+        vm.deleteCompleteds = function(){
+            for(todo in vm.list){
+                if(todo.completed === true){
+                    todo.$delete({id: tod.id});
+                }
+            }
+        }
 
         
 

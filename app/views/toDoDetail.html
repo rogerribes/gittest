@@ -2,7 +2,7 @@
     <form >
     <div class="row">
         <input type="text"  ng-show="detailCtrl.isNew" class="form-control input-lg text-center "
-            name="" placeholder="{{detailCtrl.todo.title}}"
+            name="" placeholder="New Todo Element"
             ng-model="detailCtrl.todo.title">
         <h3 ng-hide="detailCtrl.isNew" class="header text-center text-muted">{{detailCtrl.todo.title}}</h3>
     </div>
@@ -18,15 +18,19 @@
         <div class="col-xs-4">
             <div class="form-group form-inline">
                 <label class="form-control-label" for="todoUrgency">Urgency: </label>
-                <input ng-disabled="detailCtrl.disabled" type="text" class="form-control"
-                     id="todoUrgency" placeholder="Urgency"
-                     ng-model="detailCtrl.todo.urgency">
+             
+                <select ng-disabled="detailCtrl.disabled" class="form-control" id="sel2"
+                       placeholder="Urgency" ng-model="detailCtrl.todo.urgency">
+                    <option vaule="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+            </select>
             </div>
         </div>
         <div class="col-xs-4 ">
             <div class="form-group form-inline">
                 <label class="form-control-label" for="todoDueDate">Due Date: </label>
-                <input ng-disabled="detailCtrl.disabled" type="datetime" class="form-control"
+                <input ng-disabled="detailCtrl.disabled" type="date" class="form-control"
                      id="todoDueDate" placeholder="DueDate"
                      ng-model="detailCtrl.todo.dueDate">{{detailCtrl.todo.dueDate}}
                     

@@ -132,7 +132,37 @@ body {
 }
 
 
+/* Make Angular Animations Real!!!*/
+.toDo-element-item.ng-enter,
+.toDo-element-item.ng-leave,
+.toDo-element-item.ng-move {
+  transition: 0.5s linear all;
+}
 
+.toDo-element-item.ng-enter,
+.toDo-element-item.ng-move {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.toDo-element-item.ng-enter.ng-enter-active,
+.toDo-element-item.ng-move.ng-move-active {
+  height: 120px;
+  opacity: 1;
+}
+
+.toDo-element-item.ng-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.toDo-element-item.ng-leave.ng-leave-active {
+  height: 0;
+  opacity: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}
 
 
 

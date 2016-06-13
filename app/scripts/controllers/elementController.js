@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('toDoModule');
-app.controller('elementController', ['toDoResource', '$routeParams', 
-    function(toDoResource, $routeParams) {
+app.controller('elementController', ['toDoResource', '$routeParams', '$location',
+    function(toDoResource, $routeParams,$location) {
 
     var vm = this;
 
@@ -13,8 +13,6 @@ app.controller('elementController', ['toDoResource', '$routeParams',
     vm.btnCancel = "Back";
    
 
-    
-
     // SAVE New ToDo Element
     vm.saveNew = function() {
         // Create Date Elements Correctly
@@ -25,7 +23,6 @@ app.controller('elementController', ['toDoResource', '$routeParams',
         vm.newTodo = new toDoResource(vm.todo);
         vm.newTodo.$save();
     };
-
 
     //UPDATE ToDo Element
     vm.updateToDo = function(todo) {
@@ -39,15 +36,17 @@ app.controller('elementController', ['toDoResource', '$routeParams',
             vm.saveNew();
         } else {
             vm.updateToDo(vm.todo);
-        };
+        }
+        $location.path('/toDoList');
     };
     
 
     // Functions to Control Buttons
     vm.isEditable = function() {
+         if (!vm.disabled){vm.saveOrUpdate();};
         console.log("todo post form", vm.todo);
         vm.disabled = !vm.disabled;
-        vm.saveOrUpdate();
+        
         if (!vm.disabled) {
             vm.btnEdit = "Save";
             vm.btnCancel = "Cancel";
@@ -59,14 +58,10 @@ app.controller('elementController', ['toDoResource', '$routeParams',
     // Controls if is New Element or Edit
     if (!$routeParams.id) {
         vm.isNew = true;
-        vm.todo = {
-            "title": "New Todo Element"
-        };
         vm.disabled = false;
         vm.btnEdit = "Save";
         vm.btnCancel = "Cancel";
-    } else {
-        
+    } else { 
         vm.todo = toDoResource.get({
             id: $routeParams.id
         });
